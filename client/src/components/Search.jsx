@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import api_key from '../config/api_key';
 
 class Search extends Component {
     constructor() {
