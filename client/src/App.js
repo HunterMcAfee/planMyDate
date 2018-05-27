@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Search from './components/Search';
 import CreateItinerary from './components/CreateItinerary';
+import Login from './components/Login'; 
+import Register from './components/Register'; 
 
 class App extends Component {
   render() {
@@ -12,6 +14,8 @@ class App extends Component {
         <div>
           <Route exact path="/search" component={Search} />
           <Route exact path="/createItinerary" component={CreateItinerary} />
+	        <Route exact path = "/login" component = {Login} />
+	        <Route exact path = "/register" component = {Register} />
         </div>
       </Router>
     );
