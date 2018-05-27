@@ -15,7 +15,7 @@ class Search extends Component {
         const searchTerm = event.target[0].value;
         axios.post('http://localhost:3005/api/search', {
             "searchTerm": searchTerm
-            })
+        })
             .then((res) => {
                 console.log(res.data.results);
                 this.setState({

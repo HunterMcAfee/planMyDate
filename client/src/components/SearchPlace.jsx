@@ -6,7 +6,7 @@ const SearchPlace = (props) => {
             <div>Name: {props.result.name}</div>
             <div>Address: {props.result.formatted_address}</div>
             Types: {props.result.types.map((type, i) => {
-                return(<div key={i}>{type}</div>)
+                return (<div key={i}>{type}</div>)
             })}
             <br />
             <hr />
