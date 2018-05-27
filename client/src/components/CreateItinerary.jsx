@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 class CreateItinerary extends Component {
     constructor() {
@@ -20,7 +21,17 @@ class CreateItinerary extends Component {
             summary: formValue.summary.value,
             budget: formValue.budget.value
         }
-        console.log(itineraryData);
+        const token = localStorage.getItem("token");
+        axios.post(`http://localhost:3005/api/itinerary`, {
+            itineraryData,
+            token
+        })
+            .then((responseData) => {
+                console.log(responseData);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     render() {

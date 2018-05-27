@@ -21,7 +21,7 @@ class Register extends Component{
 		};
 		 axios.post('http://localhost:3005/users/register', formData)
             .then((res) => {
-                console.log(res.data)
+				localStorage.setItem('token',res.data.token)
             })
             .catch((error) => {
                 console.log(error);
