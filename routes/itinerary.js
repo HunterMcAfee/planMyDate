@@ -7,6 +7,29 @@ connection.connect();
 
 
 /* GET home page. */
+
+router.get('/:itineraryId', (req, res, next) => {
+    const itinerary_id = req.params.itineraryId;
+    const retrieveItinerary = `SELECT * FROM itineraries WHERE itinerary_id = ?`;
+    connection.query(retrieveItinerary, [itinerary_id], (error, results) => {
+        if (error) {throw error};
+        res.json({
+            results: results[0]
+        })
+    })
+})
+
+router.get('/all/:userId', (req, res, next) => {
+    const user_id = req.params.userId;
+    const retrieveAllItineraries = `SELECT * FROM itineraries WHERE user_id = ?`;
+    connection.query(retrieveAllItineraries, [user_id], (error, results) => {
+        if (error) {throw error};
+        res.json({
+            results
+        })
+    });
+});
+
 router.post('/', function(req, res, next) {
     const token = req.body.token;
     const retrieveUserID = `SELECT * FROM users WHERE token = ?`;
@@ -23,5 +46,7 @@ router.post('/', function(req, res, next) {
         })
     })
 });
+
+
 
 module.exports = router;
