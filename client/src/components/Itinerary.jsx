@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import SearchPlace from './SearchPlace';
 
 class Itinerary extends Component {
     constructor() {
         super();
         this.state = {
-            itinerary: []
+            itinerary: [],
+            places: []
         }
     }
     handleDelete = (event) => {
@@ -35,6 +37,16 @@ class Itinerary extends Component {
             .catch((error) => {
                 console.log(error);
             });
+
+        axios.get(`http://localhost:3005/api/place/${itinerary_id}`)
+            .then((res) => {
+                this.setState({
+                    places: res.data.results
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     render() {
@@ -45,6 +57,17 @@ class Itinerary extends Component {
                 <div>{this.state.itinerary.summary}</div>
                 <div>{this.state.itinerary.date}</div>
                 <div>{this.state.itinerary.budget}</div>
+                <br />
+                Places:
+                {this.state.places.map((place, i) => {
+                    return (
+                        <div key={i}>
+                            <div>{place.name}</div>
+                            <div>{place.formatted_address}</div>
+                            <br />
+                        </div>
+                    )
+                })}
             </div>
         )
     }

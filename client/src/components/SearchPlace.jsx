@@ -9,7 +9,6 @@ const SearchPlace = (props) => {
                 return (<div key={i}>{type}</div>)
             })}
             <br />
-            <hr />
         </div>
     )
 }
