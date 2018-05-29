@@ -12,10 +12,10 @@ class Itinerary extends Component {
     }
     handleDelete = (event) => {
         event.preventDefault(); 
-        const itineraryId = this.props.match.params.itineraryId;
-        console.log(itineraryId); 
+        const itinerary_id = this.props.match.params.itineraryId;
+        console.log(itinerary_id); 
         axios.delete(`http://localhost:3005/api/itinerary/${
-            itineraryId}`)
+            itinerary_id}`)
             .then((res)=>{
                 console.log(res);
 
@@ -25,6 +25,23 @@ class Itinerary extends Component {
             })
 
         }
+
+    handlePlaceDelete = (event)=>{
+        event.preventDefault();
+        const itinerary_id = this.props.match.params.itineraryId;
+        const place_id = this.state.places[event.target.value].place_id; 
+        console.log(itinerary_id);
+        console.log(place_id);
+        axios.delete(`http://localhost:3005/api/place/${
+            itinerary_id}/${place_id}`)
+        .then((res)=>{
+            console.log(res); 
+        })
+        .catch((error)=>{
+            console.log(error); 
+        })
+    
+    }
 
     componentDidMount() {
         const itinerary_id = this.props.match.params.itineraryId;
@@ -62,6 +79,7 @@ class Itinerary extends Component {
                 {this.state.places.map((place, i) => {
                     return (
                         <div key={i}>
+                            <button value ={i} onClick={this.handlePlaceDelete} className = "btn btn-primary">Delete Place</button>
                             <div>{place.name}</div>
                             <div>{place.formatted_address}</div>
                             <br />

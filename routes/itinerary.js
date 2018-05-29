@@ -71,7 +71,6 @@ router.put('/:itineraryId', function (req, res, next) {
 });
 
 router.delete('/:itineraryId', function(req, res, next){
-    const token = req.body.token;
     const itinerary_id = req.params.itineraryId;
     const deleteItinerary = `DELETE FROM itineraries WHERE itinerary_id = ?`;
     connection.query(deleteItinerary, [itinerary_id], (error, results) => {
