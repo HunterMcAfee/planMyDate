@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Register from './components/Register'; 
 import Itineraries from './components/Itineraries';
 import Itinerary from './components/Itinerary';
+import EditItinerary from './components/EditItinerary';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <div>
           <Route exact path="/search" component={Search} />
           <Route exact path="/createItinerary" component={CreateItinerary} />
+          <Route exact path="/editItinerary/:itineraryId" component={EditItinerary} />
           <Route exact path="/itineraries/:userId" component={Itineraries} />
           <Route exact path="/itinerary/:itineraryId" component={Itinerary} />
 	        <Route exact path = "/login" component = {Login} />
