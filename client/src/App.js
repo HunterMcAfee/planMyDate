@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/search" component={Search} />
+          <Route exact path="/itinerary/:itineraryId/search" component={Search} />
           <Route exact path="/createItinerary" component={CreateItinerary} />
           <Route exact path="/editItinerary/:itineraryId" component={EditItinerary} />
           <Route exact path="/itineraries/:userId" component={Itineraries} />

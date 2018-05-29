@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 const itineraryRouter = require('./routes/itinerary');
 var registerRouter = require('./routes/registerRoute'); 
 var loginRouter = require('./routes/loginRoute');
+const placeRouter = require('./routes/place');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/itinerary', itineraryRouter);
+app.use('/api/place', placeRouter);
 app.use('/userslogin', loginRouter);
 app.use('/users', registerRouter);
 

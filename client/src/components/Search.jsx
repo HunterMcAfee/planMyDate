@@ -10,6 +10,26 @@ class Search extends Component {
         }
     }
 
+    addPlace = (event) => {
+        const placeData = this.state.searchResults[event.target.value];
+        axios.post('http://localhost:3005/api/place', {
+            formatted_address: placeData.formatted_address,
+            name: placeData.name,
+            place_id: placeData.place_id,
+            rating: placeData.rating,
+            reference: placeData.reference,
+            location_lat: placeData.geometry.location.lat,
+            location_long: placeData.geometry.location.lng,
+            itinerary_id: this.props.match.params.itineraryId
+        })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
     handleSearch = (event) => {
         event.preventDefault();
         const searchTerm = event.target[0].value;
@@ -36,7 +56,11 @@ class Search extends Component {
                 </form>
                 {this.state.searchResults.map((result, i) => {
                     return (
-                        <SearchPlace result={result} key={i} />
+                        <div key={i}>
+                            <SearchPlace result={result} />
+                            <button value={i} onClick={this.addPlace}>Add</button>
+                            <hr />
+                        </div>
                     )
                 })}
             </div>
