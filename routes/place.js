@@ -46,4 +46,18 @@ router.post('/', function (req, res, next) {
 
 });
 
+router.delete('/:itineraryId/:placeId', function(req, res, next ){
+    const itinerary_id = req.params.itineraryId;
+    const place_id = req.params.placeId;
+    const deletePlace = `DELETE FROM places WHERE itinerary_id = ? and place_id = ?`
+    const dataArray = [itinerary_id, place_id]; 
+    connection.query(deletePlace, dataArray, (error,results)=>{
+        if(error){
+            throw error
+        };
+        res.json({
+            msg: "Successfully deleted place from itinerary"
+        })
+    })
+})
 module.exports = router;
