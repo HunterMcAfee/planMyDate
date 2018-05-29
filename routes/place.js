@@ -5,6 +5,19 @@ const creds = require('../config/creds');
 const connection = mysql.createConnection(creds);
 connection.connect();
 
+router.get('/:itineraryId', (req, res, next) => {
+    const itinerary_id = req.params.itineraryId;
+    const selectSQL = `SELECT * FROM places WHERE itinerary_id = ?`;
+    connection.query(selectSQL, [itinerary_id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.json({
+            results
+        })
+    });
+});
+
 router.post('/', function (req, res, next) {
     const itinerary_id = req.body.itinerary_id;
     const insertSQL = `INSERT INTO places (place_id, itinerary_id, name, reference, location_lat, location_long, formatted_address, rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
