@@ -9,6 +9,7 @@ import Register from './components/Register';
 import Itineraries from './components/Itineraries';
 import Itinerary from './components/Itinerary';
 import EditItinerary from './components/EditItinerary';
+import Place from './components/Place';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path="/editItinerary/:itineraryId" component={EditItinerary} />
           <Route exact path="/itineraries/:userId" component={Itineraries} />
           <Route exact path="/itinerary/:itineraryId" component={Itinerary} />
+          <Route exact path="/itinerary/:itineraryId/place/:placeId" component={Place} />
 	        <Route exact path = "/login" component = {Login} />
 	        <Route exact path = "/register" component = {Register} />
         </div>

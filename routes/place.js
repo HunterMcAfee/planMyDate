@@ -18,6 +18,19 @@ router.get('/:itineraryId', (req, res, next) => {
     });
 });
 
+router.get('/id/:placeId', (req, res, next) => {
+    const place_id = req.params.placeId;
+    const selectSQL = `SELECT * FROM places WHERE place_id = ?`;
+    connection.query(selectSQL, [place_id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.json({
+            results: results[0]
+        })
+    });
+});
+
 router.post('/', function (req, res, next) {
     const itinerary_id = req.body.itinerary_id;
     const insertSQL = `INSERT INTO places (place_id, itinerary_id, name, reference, location_lat, location_long, formatted_address, rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;

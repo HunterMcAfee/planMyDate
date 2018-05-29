@@ -13,7 +13,6 @@ class Itinerary extends Component {
     handleDelete = (event) => {
         event.preventDefault(); 
         const itineraryId = this.props.match.params.itineraryId;
-        console.log(itineraryId); 
         axios.delete(`http://localhost:3005/api/itinerary/${
             itineraryId}`)
             .then((res)=>{
