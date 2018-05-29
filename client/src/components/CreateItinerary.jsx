@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class CreateItinerary extends Component {
     constructor() {
@@ -28,6 +29,7 @@ class CreateItinerary extends Component {
         })
             .then((responseData) => {
                 console.log(responseData);
+                this.props.history.push(`/itineraries/${this.props.match.params.userId}`)
             })
             .catch((error) => {
                 console.log(error);
@@ -37,6 +39,7 @@ class CreateItinerary extends Component {
     render() {
         return (
             <div>
+                <Link to={`/itineraries/${this.props.match.params.userId}`}><button className="btn btn-primary">Go back</button></Link>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="name"></input>
                     <br />

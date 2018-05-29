@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import SearchPlace from './SearchPlace';
+import { Link } from 'react-router-dom';
 
 class Itinerary extends Component {
     constructor() {
@@ -18,7 +19,6 @@ class Itinerary extends Component {
             itinerary_id}`)
             .then((res)=>{
                 console.log(res);
-
             })
             .catch((error)=>{
                 console.log(error);
@@ -36,6 +36,15 @@ class Itinerary extends Component {
             itinerary_id}/${place_id}`)
         .then((res)=>{
             console.log(res); 
+            axios.get(`http://localhost:3005/api/place/${itinerary_id}`)
+            .then((res) => {
+                this.setState({
+                    places: res.data.results
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         })
         .catch((error)=>{
             console.log(error); 
@@ -69,19 +78,25 @@ class Itinerary extends Component {
     render() {
         return (
             <div>
-                <button onClick = {this.handleDelete} className = "btn btn-primary"> Delete </button>
+                <button onClick = {this.handleDelete} className = "btn btn-primary"> Delete Itinerary </button>
                 <div>{this.state.itinerary.name}</div>
                 <div>{this.state.itinerary.summary}</div>
                 <div>{this.state.itinerary.date}</div>
                 <div>{this.state.itinerary.budget}</div>
                 <br />
+                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/search`}>
+                    <button className="btn btn-primary">Add by search</button>
+                </Link>
+                <br />
                 Places:
                 {this.state.places.map((place, i) => {
                     return (
                         <div key={i}>
-                            <button value ={i} onClick={this.handlePlaceDelete} className = "btn btn-primary">Delete Place</button>
-                            <div>{place.name}</div>
-                            <div>{place.formatted_address}</div>
+                            <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/place/${place.place_id}`}>
+                                <div>{place.name}</div>
+                                <div>{place.formatted_address}</div>
+                            </Link>
+                            <button value ={i} onClick={this.handlePlaceDelete} className = "btn btn-primary">X</button>
                             <br />
                         </div>
                     )

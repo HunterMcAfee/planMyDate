@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class Register extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			registerData: []
 		}
 	}
 
-	handleSubmit(event) {
+	handleSubmit = (event) => {
 		event.preventDefault();
 		const formValue = event.target;
 		let formData = {
@@ -22,6 +23,7 @@ class Register extends Component {
 		axios.post('http://localhost:3005/users/register', formData)
 			.then((res) => {
 				localStorage.setItem('token', res.data.token)
+				this.props.history.push(`/itineraries/${res.data.user_id}`);
 			})
 			.catch((error) => {
 				console.log(error);

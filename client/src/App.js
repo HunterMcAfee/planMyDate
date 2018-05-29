@@ -16,14 +16,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/itinerary/:itineraryId/search" component={Search} />
-          <Route exact path="/createItinerary" component={CreateItinerary} />
+          <Route exact path="/itineraries/:userId/itinerary/:itineraryId/search" component={Search} />
+          <Route exact path="/itineraries/:userId/createItinerary" component={CreateItinerary} />
           <Route exact path="/editItinerary/:itineraryId" component={EditItinerary} />
           <Route exact path="/itineraries/:userId" component={Itineraries} />
-          <Route exact path="/itinerary/:itineraryId" component={Itinerary} />
-          <Route exact path="/itinerary/:itineraryId/place/:placeId" component={Place} />
-	        <Route exact path = "/login" component = {Login} />
-	        <Route exact path = "/register" component = {Register} />
+          <Route exact path="/itineraries/:userId/itinerary/:itineraryId" component={Itinerary} />
+          <Route exact path="/itineraries/:userId/itinerary/:itineraryId/place/:placeId" component={Place} />
+	        <Route exact path="/login" component={Login} />
+	        <Route exact path="/register" component={Register} />
         </div>
       </Router>
     );

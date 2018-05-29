@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import api_key from '../config/api_key';
+import { Link } from 'react-router-dom';
 
 class Place extends Component {
     constructor() {
@@ -27,6 +28,8 @@ class Place extends Component {
     render() {
         return (
             <div>
+                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}><button className="btn btn-primary">Go back</button></Link>
+                <br />
                 <iframe
                     width="600"
                     height="450"
@@ -34,7 +37,6 @@ class Place extends Component {
                     src={`https://www.google.com/maps/embed/v1/place?key=${api_key}
                         &q=place_id:${this.state.place.place_id}`} allowFullScreen>
                 </iframe>
-                
             </div>
         )
     }

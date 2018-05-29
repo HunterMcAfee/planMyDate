@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import SearchPlace from './SearchPlace';
+import { Link } from 'react-router-dom';
 
 class Search extends Component {
     constructor() {
@@ -50,6 +51,9 @@ class Search extends Component {
     render() {
         return (
             <div>
+                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}>
+                    <button className="btn btn-primary">Done</button>
+                </Link>
                 <form onSubmit={this.handleSearch}>
                     <input type="text" placeholder="Type in your search terms here" name="searchTerm" />
                     <button className="btn btn-primary">Search</button>
@@ -58,7 +62,7 @@ class Search extends Component {
                     return (
                         <div key={i}>
                             <SearchPlace result={result} />
-                            <button value={i} onClick={this.addPlace}>Add</button>
+                            <button className="btn btn-primary" value={i} onClick={this.addPlace}>Add</button>
                             <hr />
                         </div>
                     )
