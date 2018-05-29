@@ -29,15 +29,26 @@ class Login extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label> Email: </label>
-				<input type="email" name="email" />
-				<br />
-				<label> Password: </label>
-				<input type="password" name="password" />
-				<br />
-				<button className="btn btn-primary">Login</button>
-			</form>
+			<div>
+				<div className = "col-md-12 text-center header">
+					<h1> Plan My Date </h1>
+					<h4> Welcome Back, we've missed you &#x2764; Please login below </h4>
+				</div>
+				<div className = "col-md-6 col-md-offset-3 form">
+					<form onSubmit={this.handleSubmit}>
+						<label> Email: </label>
+						<br />
+						<input className = "col-md-12 box" type="email" name="email" />
+						<br />
+						<label> Password: </label>
+						<br />
+						<input className = "col-md-12 box" type="password" name="password" />
+						<br />
+						<br />
+						<button className="col-md-offset-10 btn btn-primary">Login</button>
+					</form>
+				</div>
+			</div>
 		)
 	}
 }
