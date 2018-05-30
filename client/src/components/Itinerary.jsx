@@ -19,6 +19,7 @@ class Itinerary extends Component {
             itinerary_id}`)
             .then((res)=>{
                 console.log(res);
+                this.props.history.push(`/itineraries/${this.props.match.params.userId}`);
             })
             .catch((error)=>{
                 console.log(error);
@@ -79,6 +80,9 @@ class Itinerary extends Component {
         return (
             <div>
                 <button onClick = {this.handleDelete} className = "btn btn-primary"> Delete Itinerary </button>
+                <Link to={`/itineraries/${this.props.match.params.userId}`}>
+                    <button className="btn btn-primary">Go back</button>
+                </Link>
                 <div>{this.state.itinerary.name}</div>
                 <div>{this.state.itinerary.summary}</div>
                 <div>{this.state.itinerary.date}</div>

@@ -27,6 +27,7 @@ router.post('/login', (req, res) => {
 				};
 				res.json({
 					token,
+					user_id,
 					msg: "User successfully logged in"
 				});
 			});

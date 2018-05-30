@@ -10,7 +10,7 @@ class Login extends Component {
 		}
 	}
 
-	handleSubmit(event) {
+	handleSubmit = (event) => {
 		event.preventDefault();
 		const formValue = event.target;
 		let formData = {
@@ -21,6 +21,7 @@ class Login extends Component {
 			.then((res) => {
 				console.log(res.data);
 				localStorage.setItem('token', res.data.token)
+				this.props.history.push(`/itineraries/${res.data.user_id}`);
 			})
 			.catch((error) => {
 				console.log(error);
