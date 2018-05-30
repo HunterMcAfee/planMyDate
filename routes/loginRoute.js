@@ -14,17 +14,19 @@ router.post('/login', (req, res) => {
 	const password = req.body.password;
 	const selectUserQuery = `SELECT * FROM users WHERE email = ?`;
 	connection.query(selectUserQuery, [email], (error, results) => {
-		if (error) {
-			throw error;
-		}
+		// if (error) {
+		// 	throw error;
+		// }
+		console.log(error);
 		if (bcrypt.compareSync(password, results[0].password)) {
 			const user_id = results[0].user_id;
 			const token = randToken.uid(100);
 			const updateUserQuery = `UPDATE users SET token = ? WHERE user_id = ?`;
 			connection.query(updateUserQuery, [token, user_id], (error, results) => {
-				if (error) {
-					throw error
-				};
+				// if (error) {
+				// 	throw error
+				// };
+				console.log(error);
 				res.json({
 					token,
 					user_id,

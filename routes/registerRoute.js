@@ -22,7 +22,8 @@ router.post('/register', (req, res) => {
 	(?, ?, ?, ?, ?)`;
 	connection.query(insertUserQuery, [firstName, lastName, email, hashedPassword, token],
 		(error, results) => {
-			if (error) {throw error;}
+			// if (error) {throw error;}
+			console.log(error);
 			const selectSQL = `SELECT user_id FROM users WHERE token = ?`
 			connection.query(selectSQL, [token], (error, results) => {
 				res.json({
