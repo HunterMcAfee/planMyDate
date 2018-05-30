@@ -85,12 +85,12 @@ class Itinerary extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-sm-offset-2 col-sm-3">
+                    <div className="col-sm-3">
                         <Link to={`/itineraries/${this.props.match.params.userId}`}>
                             <button className="btn btn-primary">Go back</button>
                         </Link>
                     </div>
-                    <div className="col-sm-offset-1 col-sm-3">
+                    <div className="col-sm-offset-3 col-sm-3">
                         <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/search`}>
                             <button className="btn btn-primary">Add Places by Search</button>
                         </Link>
@@ -98,7 +98,7 @@ class Itinerary extends Component {
                 </div>
 
                 <div className="row" style={{paddingTop: "20px"}}>
-                    <div className="col-sm-offset-2 col-sm-4">
+                    <div className="col-sm-6">
                         <div className="form text-center word-wrap">
                             <h3>Summary: {this.state.itinerary.summary}</h3>
                             <h3>Date: {this.state.itinerary.date}</h3>
@@ -107,7 +107,7 @@ class Itinerary extends Component {
                         <button onClick={this.handleDelete} className="btn btn-primary" style={{marginTop: "20px"}}> Delete Itinerary </button>
                     </div>
 
-                    <div className="col-sm-4">
+                    <div className="col-sm-6">
                         <h3>Places:</h3>
                         {this.state.places.map((place, i) => {
                             return (

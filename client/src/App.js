@@ -10,12 +10,14 @@ import Itineraries from './components/Itineraries';
 import Itinerary from './components/Itinerary';
 import EditItinerary from './components/EditItinerary';
 import Place from './components/Place';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="container">
+          <Route path="/" component={NavBar} />
           <Route exact path="/itineraries/:userId/itinerary/:itineraryId/search" component={Search} />
           <Route exact path="/itineraries/:userId/createItinerary" component={CreateItinerary} />
           <Route exact path="/editItinerary/:itineraryId" component={EditItinerary} />

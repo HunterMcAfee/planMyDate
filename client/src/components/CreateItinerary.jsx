@@ -54,19 +54,19 @@ class CreateItinerary extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <label>Itinerary Name:</label>
                             <br />
-                            <input className="col-md-12 box" type="text" name="name"></input>
+                            <input className="col-sm-12 box" type="text" name="name"></input>
                             <br />
                             <label>Itinerary Date:</label>
                             <br />
-                            <input className="col-md-12 box" type="date" name="date"></input>
+                            <input className="col-sm-12 box" type="date" name="date"></input>
                             <br />
                             <label>Itinerary Summary:</label>
                             <br />
-                            <input className="col-md-12 box" type="text" name="summary"></input>
+                            <input className="col-sm-12 box" type="text" name="summary"></input>
                             <br />
                             <label>Itinerary Budget:</label>
                             <br />
-                            <input className="col-md-12 box" type="text" name="budget"></input>
+                            <input className="col-sm-12 box" type="text" name="budget"></input>
                             <br />
                             <br />
                             <button style={{float: "right"}} className="btn btn-primary">Submit</button>

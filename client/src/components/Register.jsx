@@ -37,7 +37,7 @@ class Register extends Component {
 					<h1> Register for Plan My Date</h1>
 					<h4> Join users all over the world in planning a night out with a special loved one!</h4>
 				</div>
-				<div className = "col-md-6 col-md-offset-3 form">
+				<div className = "col-md-8 col-md-offset-2 form">
 					<form onSubmit={this.handleSubmit}>
 						<label>First Name: </label>
 						<br />

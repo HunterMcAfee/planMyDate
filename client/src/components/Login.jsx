@@ -35,7 +35,7 @@ class Login extends Component {
 					<h1> Plan My Date </h1>
 					<h4> Welcome Back, we've missed you &#x2764; Please login below </h4>
 				</div>
-				<div className = "col-md-6 col-md-offset-3 form">
+				<div className = "col-md-8 col-md-offset-2 form">
 					<form onSubmit={this.handleSubmit}>
 						<label> Email: </label>
 						<br />

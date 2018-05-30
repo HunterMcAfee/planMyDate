@@ -25,6 +25,7 @@ class Search extends Component {
         })
             .then((res) => {
                 console.log(res);
+                alert(`You have added ${placeData.name}`)
             })
             .catch((error) => {
                 console.log(error);
@@ -57,35 +58,35 @@ class Search extends Component {
                     </div>
                 </div>
 
-                    <div className = "col-md-6 col-md-offset-3 form">
-                    <form onSubmit={this.handleSearch}>
-                        <input className = "col-md-10 box" type="text" placeholder="Type in your search terms here" name="searchTerm" />
-                        <button style={{float: "right"}} className="btn btn-primary">Search</button>
-                    </form>
-                    <br />
-                    <br />
-                    <div className = "row">
-                        <div className = "col-sm-3">
-                        <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}>
-                            <button className="btn btn-primary">Done</button>
-                        </Link>
-                        </div>
-                    </div>
-                    </div>
-                    {this.state.searchResults.map((result, i) => {
-                        return (
-                            <div className = "row col-sm-6 place-box" key={i}>
-                                <div className = "col-md-3">
-                                <SearchPlace result={result} />
-                                <button className="btn btn-primary" value={i} onClick={this.addPlace}>Add</button>
-                                <hr />
+                <div className="row">
+                    <div className="col-sm-8 col-sm-offset-2 form">
+                        <form onSubmit={this.handleSearch}>
+                            <input className="col-sm-10 box" type="text" placeholder="Type in your search terms here" name="searchTerm" />
+                            <button style={{ float: "right" }} className="btn btn-primary">Search</button>
+                        </form>
+                        <br />
+                        <br />
+                        <div className="row">
+                            <div className="col-sm-3">
+                                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}>
+                                    <button className="btn btn-primary">Done</button>
+                                </Link>
                             </div>
                         </div>
-                        )
-
-                
+                    </div>
+                </div>
+                <div>
+                {this.state.searchResults.map((result, i) => {
+                    return (
+                        <div className="row" key={i}>
+                            <div className="col-sm-offset-2 col-sm-8 search-box">
+                                <SearchPlace result={result} />
+                                <button className="btn btn-primary" value={i} onClick={this.addPlace}>Add</button>
+                            </div>
+                        </div>
+                    )
                 })}
-                    
+                </div>
             </div>
         )
     }
