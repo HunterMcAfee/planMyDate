@@ -6,7 +6,7 @@ class NavBar extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         return (
             <div>
@@ -19,7 +19,7 @@ class NavBar extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <Link className="navbar-brand nav-title" to="/">Plan My Date</Link>
+                            <Link className="navbar-brand nav-title" to={`/itineraries/${this.props.userId}`}>Plan My Date</Link>
                         </div>
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
