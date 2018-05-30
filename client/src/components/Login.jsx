@@ -46,7 +46,7 @@ class Login extends Component {
 						<input className = "col-md-12 box" type="password" name="password" />
 						<br />
 						<br />
-						<button className="col-md-offset-10 btn btn-primary">Login</button>
+						<button style={{float: "right"}} className="btn btn-primary">Login</button>
 					</form>
 				</div>
 			</div>

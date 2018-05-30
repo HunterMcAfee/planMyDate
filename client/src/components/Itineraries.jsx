@@ -21,7 +21,7 @@ const Itinerary = (props) => {
                 {props.itinerary.date}
             </div>
             <div className="col-sm-3 text-center">
-                <Link to={`/itineraries/${props.userId}/itinerary/${props.itinerary.itinerary_id}`}><button className="btn btn-primary">Go to</button></Link>
+                <Link to={`/itineraries/${props.userId}/itinerary/${props.itinerary.itinerary_id}`}><button className="btn btn-primary" style={{float: "right"}}>Go to</button></Link>
             </div>
         </div>
     )

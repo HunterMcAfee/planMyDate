@@ -51,22 +51,41 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}>
-                    <button className="btn btn-primary">Done</button>
-                </Link>
-                <form onSubmit={this.handleSearch}>
-                    <input type="text" placeholder="Type in your search terms here" name="searchTerm" />
-                    <button className="btn btn-primary">Search</button>
-                </form>
-                {this.state.searchResults.map((result, i) => {
-                    return (
-                        <div key={i}>
-                            <SearchPlace result={result} />
-                            <button className="btn btn-primary" value={i} onClick={this.addPlace}>Add</button>
-                            <hr />
+                <div className="row">
+                    <div className="col-sm-12 text-center">
+                        <h1> Search for a place to add to Itinerary below</h1>
+                    </div>
+                </div>
+
+                    <div className = "col-md-6 col-md-offset-3 form">
+                    <form onSubmit={this.handleSearch}>
+                        <input className = "col-md-10 box" type="text" placeholder="Type in your search terms here" name="searchTerm" />
+                        <button style={{float: "right"}} className="btn btn-primary">Search</button>
+                    </form>
+                    <br />
+                    <br />
+                    <div className = "row">
+                        <div className = "col-sm-3">
+                        <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}>
+                            <button className="btn btn-primary">Done</button>
+                        </Link>
                         </div>
-                    )
+                    </div>
+                    </div>
+                    {this.state.searchResults.map((result, i) => {
+                        return (
+                            <div className = "row col-sm-6 place-box" key={i}>
+                                <div className = "col-md-3">
+                                <SearchPlace result={result} />
+                                <button className="btn btn-primary" value={i} onClick={this.addPlace}>Add</button>
+                                <hr />
+                            </div>
+                        </div>
+                        )
+
+                
                 })}
+                    
             </div>
         )
     }

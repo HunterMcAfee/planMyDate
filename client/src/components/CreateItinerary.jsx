@@ -39,17 +39,40 @@ class CreateItinerary extends Component {
     render() {
         return (
             <div>
-                <Link to={`/itineraries/${this.props.match.params.userId}`}><button className="btn btn-primary">Go back</button></Link>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="name"></input>
-                    <br />
-                    <input type="date" name="date"></input>
-                    <br />
-                    <input type="text" name="summary"></input>
-                    <br />
-                    <input type="text" name="budget"></input>
-                    <button className="btn btn-primary">Submit</button>
-                </form>
+                <div className="row">
+                    <div className="col-sm-12 text-center">
+                        <h1>Create Itinerary</h1>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-3 text-center">
+                        <Link to={`/itineraries/${this.props.match.params.userId}`}>
+                            <button className="btn btn-primary">Go back</button>
+                        </Link>
+                    </div>
+                    <div className="col-sm-6 form">
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Itinerary Name:</label>
+                            <br />
+                            <input className="col-md-12 box" type="text" name="name"></input>
+                            <br />
+                            <label>Itinerary Date:</label>
+                            <br />
+                            <input className="col-md-12 box" type="date" name="date"></input>
+                            <br />
+                            <label>Itinerary Summary:</label>
+                            <br />
+                            <input className="col-md-12 box" type="text" name="summary"></input>
+                            <br />
+                            <label>Itinerary Budget:</label>
+                            <br />
+                            <input className="col-md-12 box" type="text" name="budget"></input>
+                            <br />
+                            <br />
+                            <button style={{float: "right"}} className="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }

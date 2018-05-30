@@ -79,32 +79,50 @@ class Itinerary extends Component {
     render() {
         return (
             <div>
-                <button onClick = {this.handleDelete} className = "btn btn-primary"> Delete Itinerary </button>
-                <Link to={`/itineraries/${this.props.match.params.userId}`}>
-                    <button className="btn btn-primary">Go back</button>
-                </Link>
-                <div>{this.state.itinerary.name}</div>
-                <div>{this.state.itinerary.summary}</div>
-                <div>{this.state.itinerary.date}</div>
-                <div>{this.state.itinerary.budget}</div>
-                <br />
-                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/search`}>
-                    <button className="btn btn-primary">Add by search</button>
-                </Link>
-                <br />
-                Places:
-                {this.state.places.map((place, i) => {
-                    return (
-                        <div key={i}>
-                            <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/place/${place.place_id}`}>
-                                <div>{place.name}</div>
-                                <div>{place.formatted_address}</div>
-                            </Link>
-                            <button value ={i} onClick={this.handlePlaceDelete} className = "btn btn-primary">X</button>
-                            <br />
+                <div className="row">
+                    <div className="col-sm-12 text-center">
+                        <h1>Itinerary Name: {this.state.itinerary.name}</h1>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-offset-2 col-sm-3">
+                        <Link to={`/itineraries/${this.props.match.params.userId}`}>
+                            <button className="btn btn-primary">Go back</button>
+                        </Link>
+                    </div>
+                    <div className="col-sm-offset-1 col-sm-3">
+                        <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/search`}>
+                            <button className="btn btn-primary">Add Places by Search</button>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="row" style={{paddingTop: "20px"}}>
+                    <div className="col-sm-offset-2 col-sm-4">
+                        <div className="form text-center word-wrap">
+                            <h3>Summary: {this.state.itinerary.summary}</h3>
+                            <h3>Date: {this.state.itinerary.date}</h3>
+                            <h3>Budget: {this.state.itinerary.budget}</h3>
                         </div>
-                    )
-                })}
+                        <button onClick={this.handleDelete} className="btn btn-primary" style={{marginTop: "20px"}}> Delete Itinerary </button>
+                    </div>
+
+                    <div className="col-sm-4">
+                        <h3>Places:</h3>
+                        {this.state.places.map((place, i) => {
+                            return (
+                                <div className="place-box" key={i}>
+                                    <button style={{float: "right"}} value={i} onClick={this.handlePlaceDelete} className = "btn btn-primary">X</button>
+                                    <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/place/${place.place_id}`}>
+                                        <div>{place.name}</div>
+                                        <div>{place.formatted_address}</div>
+                                    </Link>
+                                    <br />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }

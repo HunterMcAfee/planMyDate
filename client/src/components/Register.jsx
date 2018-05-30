@@ -58,7 +58,7 @@ class Register extends Component {
 						<br />
 						<p className = "col-md-12"> By clicking Register, I agree to the Terms of Service, Privacy Policy and Cookie Policy</p>
 						<br />
-						<button className="col-md-offset-10 btn btn-primary">Register</button>
+						<button style={{float: "right"}} className="btn btn-primary">Register</button>
 					</form>
 				</div>
 			</div>
