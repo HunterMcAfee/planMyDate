@@ -52,7 +52,8 @@ class Itineraries extends Component {
         return (
             <div className="container">
                 <div className="col-md-12 text-center header">
-                    <h1>Your Itineraries</h1>
+                    <h3 className = "title" >Your Itineraries</h3>
+                    <br/>
                 </div>
                 <div className="row">
                     <div className="col-md-12 text-center form">

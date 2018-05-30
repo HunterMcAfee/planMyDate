@@ -41,7 +41,8 @@ class CreateItinerary extends Component {
             <div>
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h1>Create Itinerary</h1>
+                        <h4 className = "title" >Create An Itinerary</h4>
+                        <br/>
                     </div>
                 </div>
                 <div className="row">

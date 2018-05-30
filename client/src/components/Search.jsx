@@ -54,7 +54,7 @@ class Search extends Component {
             <div>
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h1> Search for a place to add to Itinerary below</h1>
+                        <h3 className = "title"> Search below</h3>
                     </div>
                 </div>
 

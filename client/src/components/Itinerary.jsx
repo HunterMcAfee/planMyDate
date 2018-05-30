@@ -81,7 +81,7 @@ class Itinerary extends Component {
             <div>
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h1>Itinerary Name: {this.state.itinerary.name}</h1>
+                        <h1 className="title">Itinerary Name: {this.state.itinerary.name}</h1>
                     </div>
                 </div>
                 <div className="row">

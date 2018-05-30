@@ -28,15 +28,18 @@ class Place extends Component {
     render() {
         return (
             <div>
-                <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}><button className="btn btn-primary">Go back</button></Link>
-                <br />
-                <iframe
-                    width="600"
-                    height="450"
-                    frameBorder="0" style={{border: "0"}}
-                    src={`https://www.google.com/maps/embed/v1/place?key=${api_key}
-                        &q=place_id:${this.state.place.place_id}`} allowFullScreen>
-                </iframe>
+                <div style={{marginBottom: "10px"}} className="row text-center">
+                    <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}><button className="btn btn-primary">Go back</button></Link>
+                </div>
+                <div className="row text-center">
+                    <iframe
+                        width={`${document.documentElement.clientWidth * 0.75}px`}
+                        height={`${document.documentElement.clientHeight * 0.75}px`}
+                        frameBorder="0" style={{border: "0"}}
+                        src={`https://www.google.com/maps/embed/v1/place?key=${api_key}
+                            &q=place_id:${this.state.place.place_id}`} allowFullScreen>
+                    </iframe>
+                </div>
             </div>
         )
     }
