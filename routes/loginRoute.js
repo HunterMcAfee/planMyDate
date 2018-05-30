@@ -41,4 +41,15 @@ router.post('/login', (req, res) => {
 	})
 });
 
+router.post('/getUser', (req, res, next) => {
+	const token = req.body.token;
+	const selectQuery = `SELECT user_id FROM users WHERE token = ?`;
+	connection.query(selectQuery, [token], (error, results) => {
+		console.log(error);
+		res.json({
+			results: results[0]
+		})
+	})
+})
+
 module.exports = router;

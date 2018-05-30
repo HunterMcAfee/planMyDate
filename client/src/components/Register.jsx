@@ -23,6 +23,7 @@ class Register extends Component {
 		axios.post('http://localhost:3005/users/register', formData)
 			.then((res) => {
 				localStorage.setItem('token', res.data.token)
+				this.props.updateUser();
 				this.props.history.push(`/itineraries/${res.data.user_id}`);
 			})
 			.catch((error) => {

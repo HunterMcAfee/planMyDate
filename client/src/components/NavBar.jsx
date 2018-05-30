@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class NavBar extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
         return (
             <div>
@@ -18,7 +23,7 @@ class NavBar extends Component {
                         </div>
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
-                                <li><Link to="/itineraries">Itineraries</Link></li>
+                                <li><Link to={`/itineraries/${this.props.userId}`}>Itineraries</Link></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <li><Link to="/login">Login</Link></li>
