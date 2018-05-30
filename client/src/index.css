@@ -32,5 +32,20 @@ body {
 .btn-primary:hover {
 	background-color: white;
 	color: #ff3232;
-	border-color: white;
+	border-color: #ff3232;
+}
+
+.itinerary-box {
+	border: 2px black lavender;
+	border-radius: 5px;
+	padding: 0px;
+	background-color: lavender;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.word-wrap {
+	word-wrap: break-word;
 }
