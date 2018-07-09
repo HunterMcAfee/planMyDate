@@ -12,7 +12,6 @@ import Itinerary from './components/Itinerary';
 import EditItinerary from './components/EditItinerary';
 import Place from './components/Place';
 import NavBar from './components/NavBar';
-import Welcome from './components/Welcome';
 
 class App extends Component {
     constructor() {
@@ -51,7 +50,6 @@ class App extends Component {
       <Router>
         <div className="container">
           <Route path="/" component={() => {return (<NavBar userId={this.state.userId} />)}} />
-          <Route exact path = "/" component = {Welcome}/>
           <Route exact path="/itineraries/:userId/itinerary/:itineraryId/search" component={Search} />
           <Route exact path="/itineraries/:userId/createItinerary" component={CreateItinerary} />
           <Route exact path="/editItinerary/:itineraryId" component={EditItinerary} />

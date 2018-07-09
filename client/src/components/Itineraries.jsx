@@ -5,27 +5,21 @@ import { Link } from 'react-router-dom';
 const Itinerary = (props) => {
     return (
         <div className="row itinerary-box">
-            <div className="col-sm-2">
-                <label> Name: </label>
+            <div className="col-sm-3">
+                <label> Itinerary Name: </label>
                 <br />
                 {props.itinerary.name}
             </div>
             <div className="col-sm-3 word-wrap">
-                <label> Summary: </label>
+                <label> Itinerary Summary: </label>
                 <br />
                 {props.itinerary.summary}
             </div>
-            <div className="col-sm-2 word-wrap">
-                <label> Date: </label>
+            <div className="col-sm-3 word-wrap">
+                <label> Itinerary Date: </label>
                 <br />
                 {props.itinerary.date}
             </div>
-            <div className="col-sm-2 word-wrap">
-                <label> Timeframe: </label>
-                <br />
-                {props.itinerary.budget}
-            </div>
-            
             <div className="col-sm-3 text-center">
                 <Link to={`/itineraries/${props.userId}/itinerary/${props.itinerary.itinerary_id}`}><button className="btn btn-primary" style={{ float: "right" }}>Go to</button></Link>
             </div>
@@ -58,13 +52,13 @@ class Itineraries extends Component {
         return (
             <div className="container">
                 <div className="col-md-12 text-center header">
-                    <h1>Your Itineraries</h1>
+                    <h3 className = "title" >Your Itineraries</h3>
                     <br/>
                 </div>
                 <div className="row">
                     <div className="col-md-12 text-center form">
                         <Link to={`/itineraries/${this.props.match.params.userId}/createItinerary`}>
-                            <button className="btn btn-unique">Create New Itinerary</button>
+                            <button className="btn btn-primary">Create New Itinerary</button>
                         </Link>
                     </div>
                 </div>

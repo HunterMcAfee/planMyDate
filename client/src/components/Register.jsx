@@ -35,8 +35,10 @@ class Register extends Component {
 		return (
 			<div>
 				<div className = "col-md-12 text-center header">
+				<h1 className="title"> Plan My Date </h1>
 
-					<h1> Register for Scheduler below</h1>
+					<h3> Register for Plan My Date</h3>
+					<h4> Join users all over the world in planning a night out with a special loved one!</h4>
 				</div>
 				<div className = "col-md-8 col-md-offset-2 form">
 					<form onSubmit={this.handleSubmit}>

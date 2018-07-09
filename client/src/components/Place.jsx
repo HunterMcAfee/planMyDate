@@ -29,7 +29,7 @@ class Place extends Component {
         return (
             <div>
                 <div style={{marginBottom: "10px"}} className="row text-center">
-                    <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}><button className="btn btn-danger">Go back</button></Link>
+                    <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}`}><button className="btn btn-primary">Go back</button></Link>
                 </div>
                 <div className="row text-center">
                     <iframe
