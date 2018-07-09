@@ -81,38 +81,39 @@ class Itinerary extends Component {
             <div>
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h1 className="title">Itinerary Name: {this.state.itinerary.name}</h1>
+                        <h1>{this.state.itinerary.name}</h1><br/>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-sm-3">
                         <Link to={`/itineraries/${this.props.match.params.userId}`}>
-                            <button className="btn btn-primary">Go back</button>
+                            <button className="btn btn-danger">Go back</button>
                         </Link>
                     </div>
                     <div className="col-sm-offset-3 col-sm-3">
+
                         <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/search`}>
-                            <button className="btn btn-primary">Add Places by Search</button>
+                            <button className="btn btn-primary">Search for location</button>
                         </Link>
                     </div>
                 </div>
 
                 <div className="row" style={{paddingTop: "20px"}}>
                     <div className="col-sm-6">
-                        <div className="form text-center word-wrap">
+                        <div className="form word-wrap" style = {{paddingLeft: "10px"}}>
                             <h3>Summary: {this.state.itinerary.summary}</h3>
                             <h3>Date: {this.state.itinerary.date}</h3>
-                            <h3>Budget: {this.state.itinerary.budget}</h3>
+                            <h3>Timeframe: {this.state.itinerary.budget}</h3>
                         </div>
-                        <button onClick={this.handleDelete} className="btn btn-primary" style={{marginTop: "20px"}}> Delete Itinerary </button>
+                        <button onClick={this.handleDelete} className="btn btn-danger" style={{marginTop: "20px"}}> Delete Itinerary </button>
                     </div>
 
                     <div className="col-sm-6">
-                        <h3>Places:</h3>
+                        <h3> Locations: </h3>
                         {this.state.places.map((place, i) => {
                             return (
                                 <div className="place-box" key={i}>
-                                    <button style={{float: "right"}} value={i} onClick={this.handlePlaceDelete} className = "btn btn-primary">X</button>
+                                    <button style={{float: "right"}} value={i} onClick={this.handlePlaceDelete} className = "btn btn-danger">X</button>
                                     <Link to={`/itineraries/${this.props.match.params.userId}/itinerary/${this.props.match.params.itineraryId}/place/${place.place_id}`}>
                                         <div>{place.name}</div>
                                         <div>{place.formatted_address}</div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import SearchPlace from './SearchPlace';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert2';
 
 class Search extends Component {
     constructor() {
@@ -25,7 +26,12 @@ class Search extends Component {
         })
             .then((res) => {
                 console.log(res);
-                alert(`You have added ${placeData.name}`)
+                swal(
+                `You have added ${placeData.name}`,
+                '',
+                'success'
+                )
+              
             })
             .catch((error) => {
                 console.log(error);
@@ -54,7 +60,7 @@ class Search extends Component {
             <div>
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h3 className = "title"> Search below</h3>
+                        <h1> Type in an address below</h1>
                     </div>
                 </div>
 

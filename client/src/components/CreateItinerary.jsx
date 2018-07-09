@@ -41,15 +41,13 @@ class CreateItinerary extends Component {
             <div>
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h4 className = "title" >Create An Itinerary</h4>
+                        <h1 >Create An Itinerary</h1>
                         <br/>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-sm-3 text-center">
-                        <Link to={`/itineraries/${this.props.match.params.userId}`}>
-                            <button className="btn btn-primary">Go back</button>
-                        </Link>
+                        
                     </div>
                     <div className="col-sm-6 form">
                         <form onSubmit={this.handleSubmit}>
@@ -65,11 +63,14 @@ class CreateItinerary extends Component {
                             <br />
                             <input className="col-sm-12 box" type="text" name="summary"></input>
                             <br />
-                            <label>Itinerary Budget:</label>
+                            <label>Itinerary Timeframe:</label>
                             <br />
                             <input className="col-sm-12 box" type="text" name="budget"></input>
                             <br />
                             <br />
+                            <Link to={`/itineraries/${this.props.match.params.userId}`}>
+                            <button style = {{float: "left"}}className="btn btn-danger">Go back</button>
+                        </Link>
                             <button style={{float: "right"}} className="btn btn-primary">Submit</button>
                         </form>
                     </div>

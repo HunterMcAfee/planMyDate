@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   padding-top: 70px;
+
 }
 
 .box:hover{
@@ -22,25 +23,48 @@ body {
 }
 
 .form {
-	background-color: #FFB6C1 ;
+	background-color: #FFE4C4;
 	padding-bottom: 10px; 
 	padding-top: 10px;
 	border-radius: 5px;
+	box-shadow: 0 7px 20px -5px rgba(0,0,0,0.2);
 }
 
-.header {
-	background-color: white;
+.btn-unique {
+	background-color: lavender;
+	border-color: lavender;
+	color:black;
+
 }
+
+.btn-unique:hover {
+	background-color: black;
+	color: lavender;
+	border-color: lavender;
+}
+
+.btn-danger {
+	background-color: red;
+	border-color: red;
+
+}
+
+.btn-danger:hover {
+	background-color: white;
+	color: red;
+	border-color: red;
+}
+
 
 .btn-primary {
-	background-color: #ff3232;
-	border-color: #ff3232;
+	background-color: #32CD32;
+	border-color: #32CD32;
 }
 
 .btn-primary:hover {
 	background-color: white;
-	color: #ff3232;
-	border-color: #ff3232;
+	color: #32CD32;
+	border-color: #32CD32;
 }
 
 .itinerary-box {
@@ -52,6 +76,7 @@ body {
 	padding-bottom: 10px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	box-shadow: 0 7px 20px -5px rgba(0,0,0,0.2);
 }
 
 .place-box {
@@ -60,6 +85,7 @@ body {
 	padding-left: 5px;
 	margin: 5px;
 	background-color: lavender;
+	box-shadow: 0 7px 20px -5px rgba(0,0,0,0.2);
 }
 
 .search-box {
@@ -69,12 +95,19 @@ body {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: 10px;
+	box-shadow: 0 7px 20px -5px rgba(0,0,0,0.2);
 }
 
 .navbar {
-	background-color: lavender;
+	background-color: #FFE4C4;
 }
 
 .word-wrap {
 	word-wrap: break-word;
+}
+
+.carousel-image {
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
 }
